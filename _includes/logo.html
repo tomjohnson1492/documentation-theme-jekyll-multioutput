@@ -1,0 +1,5 @@
+{% if site.logo %}
+  <a class="navbar-brand noCrossRef" href="{% link index.md %}" img class="navbar-logo" src="{{site.logo}}"/></a>
+  {% else %}
+  <div class="navbar-brand-text"><a class="noCrossRef navbarHomeLink" href="{% link index.md %}"><i class="fa fa-home fa-lg"></i> {{site.title}}</a></div>
+{% endif %}

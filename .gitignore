@@ -1,0 +1,8 @@
+_site
+.sass-cache
+.jekyll-metadata
+**/.DS_Store
+_site
+_sapp
+_output_ja
+_output_de

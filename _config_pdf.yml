@@ -1,0 +1,47 @@
+title: Documenting REST APIs
+subtitle: A guide for technical writers
+sidebar: docapis
+
+language: english
+target: print
+
+destination: _site
+port: 4000
+highlighter: rouge
+exclude:
+  - mobi
+  - pdf
+target: pdf
+
+markdown: kramdown
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+
+collections:
+  docs:
+    output: true
+
+sass:
+    style: compressed
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: printpdf
+  -
+    scope:
+      path: ""
+      type: docs
+    values:
+      layout: printpdf
+
+pdf.title_page_image:
+pdf.title_page_alt: This is my title page
+pdf_copyright_notice: >
+  All rights reserved. No part of this publication may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the publisher, except in the case of brief quotations embodied in critical reviews and certain other noncommercial uses permitted by copyright law. For permission requests, contact the author.

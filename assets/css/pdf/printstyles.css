@@ -1,0 +1,166 @@
+
+/*body.print .container {max-width: 650px;}*/
+
+body {
+    font-size:14px;
+}
+/*table .table {max-width:650px;}*/
+
+#navig a[href] {color: #595959 !important;}
+#navig li.sectionHead {font-weight: bold; font-size: 18px; color: #595959 !important; list-style-type: none; }
+#navig li {font-weight: normal;  list-style-type: none; font-size: 14px; }
+#navig a[href]::after { content: leader(".") target-counter(attr(href), page); }
+
+a[href]::after {
+    content: " (page " target-counter(attr(href), page) ")"
+}
+
+a[href^="http:"]::after, a[href^="https:"]::after {
+    content: " (" attr(href) ")";
+}
+
+a[href] {
+    color: #337CD6 !important;
+    text-decoration: none;
+}
+a[href*="mailto"]::after, a[data-toggle="tooltip"]::after, a[href].noCrossRef::after {
+    content: "";
+}
+
+
+.printTitle {
+    line-height:30pt;
+    font-size:27pt;
+    font-weight: bold;
+    letter-spacing: -.5px;
+    margin-bottom:25px;
+}
+
+.printSubtitle {
+    font-size: 19pt;
+    color: #cccccc !important;
+    font-family: "Grotesque MT Light";
+    line-height: 22pt;
+    letter-spacing: -.5px;
+    margin-bottom:20px;
+}
+.printTitleArea hr {
+    color: #999999 !important;
+    height: 2px;
+    width: 100%;
+}
+
+
+.printTitleImage {
+    margin-bottom: 100px;
+}
+
+.lastGeneratedDate {
+    font-style: italic;
+    font-size:14px;
+    color: gray;
+}
+
+.alert a {
+    text-decoration: none !important;
+}
+body.first {counter-reset: page 1}
+
+@page {
+    margin: 60pt 90pt 60pt 90pt;
+    font-family: sans-serif;
+    font-style:none;
+    color: gray;
+}
+
+body.title { page: title }
+@page title {
+    @top-left {
+        content: " ";
+    }
+    @top-right {
+        content: " "
+    }
+    @bottom-right {
+        content: " ";
+    }
+    @bottom-left {
+        content: " ";
+    }
+}
+body.copyright {counter-reset: page 1}
+
+body.frontmatter { page: frontmatter }
+@page frontmatter {
+    @top-left {
+        content: " ";
+    }
+    @top-right {
+        content: prince-script(datestamp);
+    }
+    @bottom-right {
+        content: counter(page, lower-roman);
+    }
+    @bottom-left {
+        content: prince-script(guideName);
+        font-size: 11px;
+    }
+}
+
+
+h1 { string-set: doctitle content() }
+
+@page {
+    @top-left {
+        content: string(doctitle);
+        font-size: 11px;
+        font-style: italic;
+    }
+    @top-right {
+        content: prince-script(datestamp);
+        font-size: 11px;
+    }
+
+    @bottom-right {
+        content: "Page " counter(page);
+        font-size: 11px;
+    }
+    @bottom-left {
+        content: prince-script(guideName);
+        font-size: 11px;
+    }
+}
+
+.alert {
+    background-color: #fafafa !important;
+    border-color: #dedede !important;
+    color: black;
+}
+
+pre {
+    background-color: #fafafa;
+}
+
+ul#markdown-toc {
+  display: none;
+}
+
+h3 {color: #DD7A01; }
+h4 {color: #808080; }
+
+
+
+a[data-toggle="tooltip"] {
+    color: #649345;
+    font-style: italic;
+    cursor: default;
+}
+
+.printTitle {
+    color: #444444 !important;
+}
+
+body h1 {color: #000000 !important; font-size:28px;}
+body h2 {color: #DD7A01 !important; font-size:20px;}
+body h3 {color: #999997 !important; font-size:14px;}
+body h4 {color: #679DCE !important; font-size:14px; }

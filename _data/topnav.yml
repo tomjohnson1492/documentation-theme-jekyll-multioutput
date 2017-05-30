@@ -1,0 +1,22 @@
+## Topnav single links
+ ## if you want to list an external url, use external_url instead of url. the theme will apply a different link base.
+
+navbar_singleitems:
+- items:
+  - title: Some entry
+    url: http://example.com
+  - title: Github
+    url: https://github.com
+  - title: Contact
+    url: contact.html
+
+
+
+ #Topnav dropdowns
+ #navbar_dropdowns:
+ #- folders:
+ #
+ #    - title: Github
+ #      folderitems:
+ #        - title: My repo
+ #          external_url: https://github.com/tomjohnson1492/learnapidoc

@@ -1,0 +1,98 @@
+title: Documentation Theme for Jekyll -- Multi-output Version
+
+# comment the logo below to use a text title instead of image title. Logo images are constrained at 50px in height.
+# logo: somelogourl.png
+favicon: favicon.ico
+url: index.html
+copyright: 2017 Your Company, Inc.
+
+language: english
+target: web
+sidebar: generic
+
+# disqus_shortname:
+feedback_email: someemail@gmail.com
+port: 4000
+highlighter: rouge
+github_log_issue_url:
+github_editme_path: https://github.com/<organization>/<repo name>/blob/<branch name>
+exclude:
+  - pdf
+target: web
+
+markdown: kramdown
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+
+collections:
+  docs:
+    output: true
+  search:
+    output: true
+
+sass:
+    style: compressed
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+      topnav: topnav
+  -
+    scope:
+      path: ""
+      type: docs
+    values:
+      layout: default
+      topnav: topnav
+  -
+    scope:
+      path: ""
+      type: search
+    values:
+      layout: default
+      topnav: topnav
+      type: search
+  -
+    scope:
+      path: "images"
+    values:
+      image: true
+
+
+
+# disqus_shortname:
+# google_analytics:
+
+############# Breadcrumb ############
+
+# you can modify the breadcrumb in _includes/logo.html
+breadcrumb_display: true
+breadcrumb:
+  home_url: http://yourcompanysite.com
+  home_name: Home
+
+########## UI text ###############
+
+uistring:
+    tableofcontents: Table of Contents
+    log_doc_issue: Log Doc Issue
+    expandall: Expand All
+    collapseall: Collapse All
+    title: User Guide # Displays as site title on top nav bar and on site metadata
+    description: Description of the site # Displays as site description meta
+    search_placeholder_product: Search ...
+    github_edit_button_text: Edit on GitHub
+    search_results_page_title: Search results
+    search_no_results_found: No results found.
+    products: Products
+    docindex_product: Product
+    docindex_startpage: Starting page
+
+cloud_storage_path: https://images-na.ssl-images-company.com/images/G/01/mobile-apps
