@@ -1,7 +1,7 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name          = "documentation-theme-jekyll-multi-output"
+  spec.name          = "documentation-theme-jekyll-multioutput"
   spec.version       = "0.1.0"
   spec.authors       = ["Tom Johnson"]
   spec.email         = ["tomjohnson1492@gmail.com"]
