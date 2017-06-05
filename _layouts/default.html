@@ -18,6 +18,20 @@
                     {% include breadcrumb.html %}
                       </div>
 
+                      {% if page.simple_map == true %}
+
+                      <script>
+                          $(document).ready ( function(){
+                              $('.box{{page.box_number}}').addClass('active');
+                          });
+                      </script>
+
+                      {% include {{page.map_name}} %}
+
+
+                      {% endif %}
+
+
                     <h1>{{page.title}}</h1>
 
 

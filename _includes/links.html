@@ -18,7 +18,7 @@ _/ |\___|_|\_\\__, |_|_|
 {% assign homepage_products = "homepage_products_ja" %}
 {% endif %}
 
-{% if site.target == "jekyll" %}
+{% if site.site_type == "jekyll" %}
 {% for sidebar in site.sidebars %}
 {% for folder in site.data[sidebar].folders %}
 {% for folderitem in folder.folderitems %}
@@ -94,7 +94,7 @@ _     _
 |_|   |_|
 {% endcomment %}
 
-{% if site.target == "hippo" %}
+{% if site.site_type == "hippo" %}
 
 {% for sidebar in site.sidebars %}
 {% for folder in site.data[sidebar].folders %}
