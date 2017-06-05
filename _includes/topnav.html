@@ -103,7 +103,7 @@
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-left">
+                <ul class="nav navbar-nav navbar-{{site.navbar_links_align}}">
 
                     <!-- single item nav items appear here -->
 
@@ -117,14 +117,12 @@
                     {% else %}
                     <li><a href="{{item.url | remove: "/"}}">{{item.title}}</a></li>
                     {% endif %}
-                    {% if page.github == true %}
-                    <li><a href="{{site.github_log_issue_url}}" class="noCrossRef">{{site.uistring.log_doc_issue}}</a></li>
-                    <li><a target="_blank" href="{{site.github_editme_path}}/{{page.path}}" class="editButton noCrossRef"><i class="fa fa-github fa-lg"></i> {{site.uistring.github_edit_button_text}}</a></li>{% endif %}
+                    {% endfor %}
+                    {% endfor %}
                     {% unless page.type == "homepage" or page.type == "search" or page.type == "404" %}
                     <li><a target="_blank" href="{{ site.data[page.sidebar].forum.forum_link }}" class="editButton noCrossRef">{{ site.data[page.sidebar].forum.forum_name }}</a></li>
                     {% endunless %}
-                    {% endfor %}
-                    {% endfor %}
+
 
                     <!-- drop-down nav items appear here -->
 

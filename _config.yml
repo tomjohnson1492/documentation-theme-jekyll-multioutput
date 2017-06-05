@@ -1,7 +1,7 @@
 title: Doc Theme for Jekyll -- Multi-output
 
 # comment the logo below to use a text title instead of image title. Logo images are constrained at 50px in height.
-# logo: somelogourl.png
+logo: companylogo.png
 favicon: favicon.ico
 url: index.html
 copyright: 2017 Your Company, Inc.
@@ -11,6 +11,8 @@ target: web
 sidebars:
   - generic
   - jekyllhowto
+
+navbar_links_align: right
 
 # disqus_shortname:
 feedback_email: someemail@gmail.com

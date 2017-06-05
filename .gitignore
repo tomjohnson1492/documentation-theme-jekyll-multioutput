@@ -6,3 +6,5 @@ _site
 _sapp
 _output_ja
 _output_de
+documentation-theme-jekyll-multioutput-*
+documentation-theme-jekyll-multioutput.gemspec

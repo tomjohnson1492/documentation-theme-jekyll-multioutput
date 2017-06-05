@@ -5,8 +5,6 @@ navbar_singleitems:
 - items:
   - title: Some entry
     url: http://example.com
-  - title: Github
-    url: https://github.com
   - title: Contact
     url: contact.html
 
