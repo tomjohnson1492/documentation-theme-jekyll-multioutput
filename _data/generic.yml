@@ -1,48 +1,6 @@
 sidebarTitle: Generic
 
-## Keep this commented out content because it shows the YAML model for the sidebar.
-
-#folders:
-#- title: Theme documentation
-#  folderitems:
-#
-#  - title: Some content
-#    jurl: /sublevel1.html
-#    hurl: http://yourcompanyurl.com/docs/sample1-level2
-#    ref: sublevel1
-#    subfolders:
-
-#    - title: Another level deep
-#      subfolderitems:
-#
-#      - title: Some content
-#        jurl: /sublevel1.html
-#        hurl: http://yourcompanyurl.com/docs/sample1-level2
-#        ref: sublevel1
-#
-#      - title: Some content
-#        jurl: /sublevel1.html
-#        hurl: http://yourcompanyurl.com/docs/sample1-level2
-#        ref: sublevel1
-#
-#    - title: Another level deep
-#      subfolderitems:
-#
-#      - title: Some content
-#        jurl: /sublevel1.html
-#        hurl: http://yourcompanyurl.com/docs/sample1-level2
-#        ref: sublevel1
-#        subsubfolders:
-#        - title: Last level deep
-#          subsubfolderitems:
-#
-#          - title: Some content last level
-#            jurl: /sublevel1.html
-#            hurl: http://yourcompanyurl.com/docs/sample1-level3
-#            ref: sample
-
-## Note that if you have a folder with no items (just other subfolders), you must include at least one item outside the folder.
-## For the obligatory item, just use a single "-" with no other properties.
+## See the generic.yml file as an example of the allowed yaml format.
 
 folders:
 - title: First Level

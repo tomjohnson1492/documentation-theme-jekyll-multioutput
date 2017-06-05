@@ -2,7 +2,6 @@
 title: Sample 1
 permalink: sample.html
 sidebar: generic
-tags: [navigation, content-types]
 product: Generic
 toc-style: kramdown
 ---

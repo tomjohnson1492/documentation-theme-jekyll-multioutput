@@ -1,7 +1,7 @@
-print_title: Some title
+print_title: "Cordova plugin for Fire TV Catalog Integration"
 print_subtitle: Version 1.0
-sidebar: generic
-folder_path: /Users/tomjoht/projects/<repo>/_site
+sidebar: firetv
+folder_path: /Users/tomjoht/projects/Appstore-alexa-docs-gitfarm/_site
 
 language: english
 target: jekyll

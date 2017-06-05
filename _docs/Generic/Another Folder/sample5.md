@@ -2,7 +2,6 @@
 title: Sample5 topic
 permalink: sample5.html
 sidebar: generic
-tags: [publishing, single-sourcing, content-types]
 product: Generic
 toc-style: kramdown
 ---

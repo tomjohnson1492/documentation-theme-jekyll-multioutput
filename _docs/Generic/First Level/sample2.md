@@ -2,7 +2,6 @@
 title: Sample2 topic
 permalink: sample2.html
 sidebar: generic
-tags: [getting-started, formatting]
 product: Generic
 toc-style: kramdown
 ---

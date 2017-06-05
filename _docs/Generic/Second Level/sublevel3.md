@@ -2,7 +2,6 @@
 title: Sublevel3
 permalink: sublevel3.html
 sidebar: generic
-tags: [getting-started, troubleshooting, formatting]
 product: Generic
 toc-style: kramdown
 ---

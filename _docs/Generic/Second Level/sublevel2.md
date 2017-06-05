@@ -3,7 +3,6 @@ title: Sublevel 2
 permalink: sublevel2.html
 sidebar: generic
 product: Generic
-tags: [troubleshooting, single-sourcing]
 toc-style: kramdown
 ---
 

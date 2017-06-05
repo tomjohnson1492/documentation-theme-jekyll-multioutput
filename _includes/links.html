@@ -19,8 +19,8 @@ _/ |\___|_|\_\\__, |_|_|
 {% endif %}
 
 {% if site.target == "jekyll" %}
-{% for sidebar in site.data[homepage_products].products %}
-{% for folder in site.data[sidebar.shortname].folders %}
+{% for sidebar in site.sidebars %}
+{% for folder in site.data[sidebar].folders %}
 {% for folderitem in folder.folderitems %}
 
 {% if folderitem.ref %}
@@ -96,8 +96,8 @@ _     _
 
 {% if site.target == "hippo" %}
 
-{% for sidebar in site.data[homepage_products].products %}
-{% for folder in site.data[sidebar.shortname].folders %}
+{% for sidebar in site.sidebars %}
+{% for folder in site.data[sidebar].folders %}
 {% for folderitem in folder.folderitems %}
 
 {% if folderitem.ref %}
@@ -135,11 +135,3 @@ _     _
 {% endfor %}
 {% endfor %}
 {% endif %}
-
-{% comment %} These files define additional links used in the ASK docs {% endcomment %}
-
-{% comment %}
-{% include common_links.md %}
-{% include nlu-content/entity-reference-links.md %}
-{% include nlu-content/slot-type-bookmark-links.md %}
-{% endcomment %}

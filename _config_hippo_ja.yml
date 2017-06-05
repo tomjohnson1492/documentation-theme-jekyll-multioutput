@@ -1,0 +1,58 @@
+language: japanese
+host: 127.0.0.1
+port: 4000
+target: hippo
+
+destination: _output_ja
+
+
+highlighter: rouge
+markdown: kramdown
+kramdown:
+ input: GFM
+ auto_ids: true
+ hard_wrap: false
+ syntax_highlighter: rouge
+
+exclude:
+  - _config*
+  - _output_ja
+  - _output_de
+  - sapp
+  - Config
+
+collections:
+  docs_ja:
+    output: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: hippolayout
+  -
+    scope:
+      path: ""
+      type: docs_ja
+    values:
+      layout: hippolayout
+
+
+#Japanese
+image_path: https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/dex/ja/
+audio_path: https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/dex/ja/
+
+
+# Japanese
+alerts:
+  note: 注意
+  tip: Tips
+  warning: 警告
+  important: 重要
+
+
+uistring:
+  github_edit_button_text: GitHub で改善を提案する
+  tableofcontents: 目次

@@ -3,7 +3,6 @@ title: Subsublevel 1
 permalink: subsublevel1.html
 sidebar: generic
 product: Generic
-tags: [navigation, publishing]
 toc-style: kramdown
 ---
 

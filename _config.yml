@@ -1,4 +1,4 @@
-title: Documentation Theme for Jekyll -- Multi-output Version
+title: Doc Theme for Jekyll -- Multi-output
 
 # comment the logo below to use a text title instead of image title. Logo images are constrained at 50px in height.
 # logo: somelogourl.png
@@ -8,7 +8,9 @@ copyright: 2017 Your Company, Inc.
 
 language: english
 target: web
-sidebar: generic
+sidebars:
+  - generic
+  - jekyllhowto
 
 # disqus_shortname:
 feedback_email: someemail@gmail.com
@@ -51,6 +53,7 @@ defaults:
     values:
       layout: default
       topnav: topnav
+      toc-style: kramdown
   -
     scope:
       path: ""

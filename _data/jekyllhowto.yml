@@ -1,0 +1,72 @@
+sidebarTitle: Generic
+
+## See the generic.yml file as an example of the allowed yaml format.
+
+folders:
+
+- title: Theme Instructions
+  folderitems:
+  - title: Getting Started
+    jurl: /jekyllhowto-getting-started.html
+    ref: jekyllhowto-getting-started
+
+  - title: Supported Features
+    jurl: /jekyllhowto-supported-features.html
+    ref: jekyllhowto-supported-features
+
+  - title: Sidebar Navigation
+    jurl: /jekyllhowto-sidebar-navigation.html
+    ref: jekyllhowto-sidebar-navigation
+
+  - title: Content and Formatting
+    jurl: /jekyllhowto-content-and-formatting.html
+    ref: jekyllhowto-content-and-formatting
+    bookmarks: [kramdowntoc]
+
+  - title: Localizing your Content
+    jurl: /jekyllhowto-localization.html
+    ref: jekyllhowto-localization
+
+  - title: Troubleshooting
+    jurl: /jekyllhowto-troubleshooting.html
+    ref: jekyllhowto-troubleshooting
+
+- title: General Jekyll Topics
+  folderitems:
+  - title: About Ruby Gems and Bundler
+    jurl: /jekyllhowto-about-ruby-gems-bundler.html
+    ref: jekyllhowto-about-ruby-gems-bundler
+
+  - title: Install Jekyll on Mac
+    jurl: /jekyllhowto-install-jekyll-on-mac.html
+    ref: jekyllhowto-install-jekyll-on-mac
+
+  - title: Install Jekyll on Windows
+    jurl: /jekyllhowto-install-jekyll-on-windows.html
+    ref: jekyllhowto-pdf
+
+  - title: Tips for Atom Text Editor
+    jurl: /jekyllhowto-atom-text-editor.html
+    ref: jekyllhowto-atom-text-editor
+
+###########################
+
+related_resources_title: Other Resources
+
+related_resources_list:
+
+- title: Forums
+  hurl: https://yourcompany.com/forums
+
+- title: Other Documentation
+  hurl: https://yourcompany.com/docs/somedocs
+
+- title: Support Portal
+  hurl: https://developer.yourcompany.com
+
+
+###########################
+
+forum:
+  forum_link: http://forums.yourcompany.com
+  forum_name: Company Forum
