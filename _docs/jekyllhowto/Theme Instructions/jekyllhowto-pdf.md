@@ -209,3 +209,5 @@ body.myclass { page: myclass }
 ```
 
 The `datestamp` and `guideName` functions are special Prince functions defined in the printpdf.html layout. Other JavaScript generated content is also possible. See the [Prince XML site](http://www.princexml.com/doc/8.1/script-func/) for details.
+
+{% include links.html %}

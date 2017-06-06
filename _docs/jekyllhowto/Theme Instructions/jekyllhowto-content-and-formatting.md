@@ -27,6 +27,8 @@ product: My Product
 ---
 ```
 
+You can store the `sidebar` and `product` properties as defaults in your \_config.yml file if you want. See the `defaults` property there.
+
 If you have a colon in your title, put the title's value in parentheses, like this:
 
 ```
@@ -38,13 +40,11 @@ product: My Product
 ---
 ```
 
-The `layout` property for the sidebar is specified in the configuration file's defaults. `_config.yml` specifies a Jekyll layout (`default.html`), while `_config_hippo.yml` specifies a Hippo layout (`hippolayout.html`).
+The `layout` property for the sidebar is specified in the configuration file's defaults. `_config.yml` specifies a Jekyll layout (`default.html`).
 
 The format for any content in the front matter must be in YAML syntax. You can't use Liquid or other `{%raw%}{{ }}{%endraw%}` syntax in your front matter. (In other words, no variables in YAML.)
 
 The `permalink` should match your file name exactly, and it should include the html file extension (even if your file is markdown).
-
-{% include tip.html content="The file names in your Jekyll project should be the same file names used for your Hippo pages. If your file names don't match up, not only will this cause you headaches in matching up files when you go to publish, mismatched file names across languages will result in broken links. Also, as a style convention for file names (going forward), prefix each file name with your project name." %}
 
 ## Markdown Formatting
 
@@ -65,7 +65,7 @@ Additionally, add this into your frontmatter:
 toc-style: kramdown
 ```
 
-If you don't have `toc-style: kramdown` in your frontmatter, the TOC won't show up in either the Hippo or Jekyll layout. However, the Hippo layout will continue to auto-generate the older JavaScript run-time-drawn TOC (to support legacy docs that don't yet use the new TOC approach).
+If you don't have `toc-style: kramdown` in your frontmatter, the TOC won't show up in the layout.
 
 ## Headings
 
@@ -361,20 +361,20 @@ Also note that instead of storing the variable in your site's configuration file
 
 To link one documentation topic to another inside the same project (internal cross references, not links to external web resources), don't use manual Markdown links. Instead, use an automated ref property that is generated from the `_include/links.html` file (which loops through your sidebar and gets all the `ref` properties).
 
-This automated approach is more efficient and easier than manual Markdown link formatting. Additionally, it is the only way to scale link paths for translation projects, and to publish valid links on both Hippo and Jekyll themes.
+This automated approach is more efficient and easier than manual Markdown link formatting. Additionally, it is the only way to scale link paths for translation projects.
 
 For each item in your sidebar menu, include a `ref` property like this:
 
 <pre>
 - title: Sample Topic
   jurl: /sample.html
-  hurl: /solutions/devices/fire-tv/docs/sample
+  hurl: /solutions/devices/product/docs/sample
   <span class="red">ref: sample</span>
 </pre>
 
 Then open **_data/topnav.yml and make sure your project's sidebar name is included in the **products** list.
 
-The file that generates the links (`_includes/links.html`) iterates through the sidebar data files (all the ones listed in your configuration file) and constructs a list of Markdown reference-style links with this syntax: {% raw %}`{{site.hippobaseurl}}{{folderitem.hurl}}`{% endraw %} for the Hippo theme, and {% raw %}`{{folderitem.jurl}}`{% endraw %} for the Jekyll theme.
+The file that generates the links (`_includes/links.html`) iterates through the sidebar data files (all the ones listed in your configuration file) and constructs a list of Markdown reference-style links.
 
 (The forward slash (`/`) gets removed from the Jekyll links, which allows links to be relative.) You can see the output by looking at the linkstest.html file in the \_site directory after your site builds.
 
@@ -384,7 +384,7 @@ On each of your pages, you must include the links.html file at the bottom of the
 {% raw %}{% include links.html %} {% endraw %}
 ```
 
-{% include note.html content="If your links don't work, check to see whether you remembered to include the links.html file at the bottom of each topic. Then check to make sure you're referencing the link as it appears in linkstest.html." %}
+{% include note.html content="If your links don't work, check to see whether you remembered to include the links.html file at the bottom of each topic." %}
 
 Now you can create Markdown-reference style links, using the `ref` property in your sidebar table of contents for the Markdown reference value. Here's an example:
 
@@ -401,12 +401,6 @@ When you add the {% raw %}`{% include links.html %}`{% endraw %} reference at th
 ```
 
 You won't actually see this referent on your page because it all happens in the build process. (The links.html file dynamically builds all the `ref` instances and then inserts this content at the bottom of the page, and then the Markdown filter process the content, converting it to HTML and inserting links where the references appear.)
-
-For the Hippo output, the (invisible) Markdown reference looks like this:
-
-```
-sample: http://developer.amazon.com/some/hippo/path/sample
-```
 
 {% include tip.html content="When you choose the `ref` values in your sidebar file, use the same names as your files. Otherwise it gets confusing to try to match up ref values with the right files." %}
 
@@ -460,37 +454,15 @@ Here's a list of [editors you can use][getting-started#editors].
 
 (The syntax actually resembles the same syntax for bookmark links, though the link is actually just a string.)
 
-The links.html file will create references that look like this in the Jekyll build:
+The links.html file will create references that look like this in the build:
 
 ```
 [getting-started#editors]: getting-started.html#editors
 ```
 
-And like this in the Hippo build:
-
-```
-[getting-started#editors]: http://developer.amazon.com/public/some/long/path/getting-started#editors
-```
-
-Be sure to add an include for links.html at the bottom of your page:
-
-```
-{% raw %} {% include links.html %} {% endraw %}
-```
-
 **Result:**
 
 Here's a list of [editors you can use][getting-started#editors].
-
-### Links to Other Hippo Product Pages
-
-For links to other Developer Portal pages outside of your project, use the relative path to the page. Here's an example:
-
-```
-See the [Fling SDK](/public/apis/experience/fling/docs/understanding-the-amazon-fling-service).
-```
-
-Don't use the absolute URL (which would be https://developer.amazon.com/public/apis/experience/fling/docs/understanding-the-amazon-fling-service) because when you translate the docs, the link won't point to the Japanese or German version of the page. Hippo sets a cookie for users who switch languages, so the `/public/` path will automatically update to `/public/ja/`.
 
 ### Links to External Web Resources
 
@@ -523,8 +495,6 @@ See the [Android documentation][androiddocs].
 
 [androiddocs]: [https://developer.android.com/index.html]
 
-If the link points to a resource that should be the same for both Jekyll and Hippo outputs (a rare case), and you want to store this  resource in the sidebar file rather than manually using traditional Markdown syntax, make the `jurl` and `hurl` values the same.
-
 {% include tip.html content="If the link formatting doesn't render correctly in your output, something is wrong with the link. Check to make sure you included the links.html file at the bottom of the file, and that your referent is correct." %}
 
 ## Detecting Broken Links
@@ -550,9 +520,9 @@ If you find a broken link, here are main causes:
 *  You forgot to add the {% raw %}`{% include links.html %}`{% endraw %} at the bottom of the file.
 *  The Markdown referent you're using doesn't match the `ref` name in your sidebar data file.
 
-## Detecting broken links across the entire Dev Portal
+## Detecting broken links across the entire site
 
-To check for broken links across the entire Dev Portal, use the [Broken Link Checker tool](http://www.brokenlinkcheck.com/broken-links.php). For URLs that are listed as containing broken links, go to the page. Then use the [Check My Links](https://chrome.google.com/webstore/detail/check-my-links/ojkcdipcgfaekbeaelaapakgnjflfglf?hl=en-GB) Chrome extension to identify the broken link on the page.
+To check for broken links across the entire site, use the [Broken Link Checker tool](http://www.brokenlinkcheck.com/broken-links.php). For URLs that are listed as containing broken links, go to the page. Then use the [Check My Links](https://chrome.google.com/webstore/detail/check-my-links/ojkcdipcgfaekbeaelaapakgnjflfglf?hl=en-GB) Chrome extension to identify the broken link on the page.
 
 ## Content re-use (includes)
 
@@ -568,20 +538,20 @@ Content stored in `_includes` will be available for any project.
 
 ## Single sourcing
 
-Suppose you have content that you want to push out to multiple files (because the content partly applies to both Fire TV and Fire tablets, for example). But there are some differences that each destination page should have.
+Suppose you have content that you want to push out to multiple files. But there are some differences that each destination page should have.
 
 Create the include as usual. Where you want to differentiate the content, add this:
 
 ```liquid
-{% raw %}{% if include.device == "firetv" %}
-Say this for Fire TV only...
+{% raw %}{% if include.device == "product_a" %}
+Say this for product A only...
 {% endif %}{% endraw %}
 ```
 
 When you call the include, pass this parameter into the include:
 
 ```
-{% raw %}{% include content/{{site.language}}/myfile.md device="firetv" %}{% endraw %}
+{% raw %}{% include content/{{site.language}}/myfile.md device="product_a" %}{% endraw %}
 ```
 
 ## Code Samples
@@ -808,28 +778,6 @@ To make life easier, add the following into a template that you can easily trigg
 </table>
 ```
 
-## Grid Styling on Tables for Hippo
-
-If you want a more grid-like style for your tables on Hippo (similar to the style of tables that appear in the Jekyll theme), add the `grid` class on a table like this:
-
-```
-{: .grid}
-<table>
-...
-</table>
-```
-
-Or to a Markdown table:
-
-```
-{: .grid}
-
-| Priority apples | Second priority | Third priority |
-|-------|--------|---------|
-...
-```
-
-Note that the Jekyll theme already has more of a grid style. This `grid` class only becomes apparent on the Hippo site, which by default has a more open, transparent style for tables.
 
 ## One-off Styles
 
@@ -879,12 +827,12 @@ You can have an empty line between the class or ID tag (`{: #special}`) and the 
 To insert an image into your content, use the image.html include template that is set up:
 
 ```liquid
-{%raw%}{% include image.html file="jekyllhowto/images/amazon_developer" type="png" url="http://developer.amazon.com" alt="My alternative image text" caption="This is my caption" border="true" max-width="90%" %}{%endraw%}
+{%raw%}{% include image.html file="jekyllhowto/images/company_logo" type="png" url="http://developer.company.com" alt="My alternative image text" caption="This is my caption" border="true" max-width="90%" %}{%endraw%}
 ```
 
 **Result:**
 
-{% include image.html file="jekyllhowto/images/amazon_developer" type="png" url="http://developer.amazon.com" alt="My alternative image text" border="true" caption="This is my caption" max-width="90%" %}
+{% include image.html file="jekyllhowto/images/company_logo" type="png" url="http://developer.company.com" alt="My alternative image text" border="true" caption="This is my caption" max-width="90%" %}
 
 The image include's properties are as follows:
 
@@ -900,7 +848,7 @@ The image include's properties are as follows:
 
 The image template will use the `image_path` property when referencing the path to the image.
 
-Store images in the **images** folder in your Jekyll project &mdash; these images will be used for your Jekyll output. Also upload the images to Media Central &mdash; these images will be used for your Hippo output. Note that all images in Media Central must be available at the path as defined in the `image_path` property in the confighippo.yml file.
+Store images in the **images** folder in your Jekyll project &mdash; these images will be used for your Jekyll output.
 
 Media Central will cache images you upload and expire the cache on an *hourly* basis. The first time you upload an image to Media Central, you may need to wait a few minutes before it becomes available.
 
@@ -911,7 +859,7 @@ If you want to have some images appear only in certain languages, use conditiona
 ```
 {% raw %}{% if site.language == "english" %}
 
-{% include image.html file="jekyllhowto/images/amazon_developer" type="png" url="http://developer.amazon.com" alt="My alternative image text" border="true" caption="This is my caption" %}
+{% include image.html file="jekyllhowto/images/company_logo" type="png" url="http://dev.company.com" alt="My alternative image text" border="true" caption="This is my caption" %}
 
 {% endif %}{% endraw %}
 ```
@@ -962,7 +910,7 @@ If you're translating your content, you need an include in the subfolder of ever
 
 ## Variables
 
-To use a variable, add the variable and its value to both the confighippo.yml and configjekyll.yml files, like this:
+To use a variable, add the variable and its value to your config files, like this:
 
 ```
 myvariable: ACME
@@ -978,7 +926,7 @@ Then reference the property through the <code>site</code> namespace:
 
 {{site.myvariable}}
 
-All properties in your configuration files are available through the <code>site</code> namespace. (Note that if you add values to your configuration files -- confighippo.yml or configjekyll.yml -- you must restart Jekyll for the changes to take effect.)
+All properties in your configuration files are available through the <code>site</code> namespace. (Note that if you add values to your configuration files,  you must restart Jekyll for the changes to take effect.)
 
 All properties in the page's front matter are available through the <code>page</code> namespace.
 
@@ -999,50 +947,6 @@ The parameters of the include are as follows:
 | title | A title tag for the element. Optional. This tag might be useful for SEO, but the title does not appear anywhere in the audio player's display. |
 | file | The name of the audio file, without the file extension. |
 | type |  The extension for the file.
-
-Media Central will cache audio files you upload and expire the cache on an *hourly* basis.
-
-In your configuration file, make sure there's a property for `audio_path`. For the Jekyll version, the `audio_path` should look as follows:
-
-```
-audio_path: audio/
-```
-
-For each translated configuration file, put the audio into a subdirectory with the language name:
-
-```
-audio_path: audio/german/
-```
-
-For hippo, the `audio_path` should look something like this:
-
-```
-audio_path: https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/dex/DevPortalDocs/
-```
-
-For each translated Hippo configuration file, the `audio_path` must include a subdirectory for the language:
-
-```
-audio_path: https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/dex/DevPortalDocs/german
-```
-
-The names for each translated file must be the same as the English file names. The only difference will be the language subdirectory in which they're included.
-
-Store audio in the **audio** folder in your Jekyll project &mdash; these audio files will be used for your Jekyll output. Also upload the audio files to Media Central &mdash; these audio files will be used for your Hippo output. Note that all audio in Media Central must be available at the path as defined in the `audio_path` property in the confighippo.yml file.
-
-When publishing to Hippo, upload your audio files into the Media Central folder that you define in your configuration file:
-
-```
-audio_path: https://images-na.ssl-images-amazon.com/images/G/01/mobile-apps/dex/DevPortalDocs/
-```
-
-For Jekyll, you can serve the audio locally by defining this property in your configuration file:
-
-```
-audio_path: audio/
-```
-
-Include the trailing slash (`/`).
 
 ## Question and Answer formatting
 
@@ -1247,7 +1151,6 @@ After the hyphen, hit return and space twice.
 Note the following about links and formatting in the tooltips.yml file:
 
 *  You can't add hyperlinks in YAML content using the approach for automated links (such as `[jekyllhowto-publishing][jekyllhowto-publishing]`), but you can directly code HTML links here.
-*  If you do use a link, use an absolute Hippo link. (Later, when we ditch Hippo, you'll have to revisit these links.)  
 *  In your link formatting, use single quotes instead of double quotes. For example, `<a href='https://en.wikipedia.org/wiki/River'>River in Wikipedia</a>`.
 *  For multiple paragraphs, use `<p>` tags. Other HTML formatting is also allowed.
 *  By default, the glossary term is lower-cased. If you want it capitalized, add a `capitalize="true"` parameter in the include syntax.
@@ -1277,7 +1180,7 @@ The parameters of the tooltips include are as follows:
 
 {% include note.html content="The term you specify in the include must match the term and case in the tooltips.yml file exactly. For example, if the term appears as \"SNS Notifications\" in the tooltips.yml file, you should reference it as \"SNS Notifications\" in the term parameter. When you handle translation, make sure this consistency is preserved." %}
 
-{% include warning.html content="When you paste the HTML code into a Hippo page, you cannot toggle between the HTML and WYSIWYG versions of the content. When you do, Hippo's editor converts the single quotes for links inside the tooltip to double quotes, which then makes the HTML invalid because this leads to double quotes inside double quotes (because the link appears inside the data-content attribute). As invalid HTML, Hippo tries to make it valid, which then screws up the correct formatting. Consequently, if you do use tooltips, you can't make adjustments to the content after pasting it into the editor. Additionally, since the WYSIWYG editor loads by default, every time you load the topic by default, the HTML will get munged." %}
+
 
 
 {% include links.html %}

@@ -102,3 +102,7 @@ uistring:
 
 cloud_storage_path: https://images-na.ssl-images-company.com/images/G/01/mobile-apps
 site_type: jekyll
+
+image_type: a
+image_path: docs
+audio_path: docs

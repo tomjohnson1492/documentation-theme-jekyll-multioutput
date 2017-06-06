@@ -23,7 +23,11 @@ folders:
     ref: jekyllhowto-content-and-formatting
     bookmarks: [kramdowntoc]
 
-  - title: Localizing your Content
+  - title: Generate a PDF
+    jurl: /jekyllhowto-pdf.html
+    ref: jekyllhowto-pdf
+
+  - title: Localize your Content
     jurl: /jekyllhowto-localization.html
     ref: jekyllhowto-localization
 
@@ -43,7 +47,7 @@ folders:
 
   - title: Install Jekyll on Windows
     jurl: /jekyllhowto-install-jekyll-on-windows.html
-    ref: jekyllhowto-pdf
+    ref: jekyllhowto-install-jekyll-on-windows
 
   - title: Tips for Atom Text Editor
     jurl: /jekyllhowto-atom-text-editor.html

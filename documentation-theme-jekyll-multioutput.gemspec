@@ -2,13 +2,13 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "documentation-theme-jekyll-multioutput"
-  spec.version       = "0.1.8"
+  spec.version       = "0.2.0"
   spec.authors       = ["Tom Johnson"]
   spec.email         = ["tomjohnson1492@gmail.com"]
 
   spec.summary       = %q{This gem provides the foundational files for The Multi-output version of the Documentation Theme for Jekyll.}
   spec.homepage      = "http://idratherbewriting.com/documentation-theme-jekyll/"
-  spec.license       = "Apache 2.0"
+  spec.license       = "Apache-2.0"
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(assets|_layouts|_includes|_sass|LICENSE|README)}i) }
 

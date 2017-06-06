@@ -1,6 +1,6 @@
 {% if site.breadcrumb_display == true %}
 {% unless page.type == "search" or page.type == "homepage" %}
 
-<a href="{{site.breadcrumb.home_url}}" class="noCrossRef productSubtitle">{{site.breadcrumb.home_name}}</a> > {{page.path | remove: "_docs/" | split: "/" | pop | join: " > " }}
+<a href="{{site.breadcrumb.home_url}}" class="noCrossRef productSubtitle">{{site.breadcrumb.home_name}}</a> > {{page.product}} > {{page.path | remove: "_docs/" | remove: "_docs_ja" | remove: "_docs_de" | split: "/" | shift | pop | join: " > " }}
     {% endunless %}
 {% endif %}

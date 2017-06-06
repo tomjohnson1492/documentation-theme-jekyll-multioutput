@@ -134,3 +134,5 @@ product: Generic Product
 To configure the sidebar, copy the format shown in \_data/generic.yml into a new sidebar file. Keep generic.yml as an example, because YAML syntax can be extremely picky and sometimes frustrating to get right. Generic.yml shows an example of content at every level.
 
 Each of your pages should reference the appropriate sidebar either in the page's frontmatter. You could also define the sidebar using defaults in your \_config.yml file.
+
+{% include links.html %}

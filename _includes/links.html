@@ -9,15 +9,6 @@ _/ |\___|_|\_\\__, |_|_|
 
 {% endcomment %}
 
-
-{% if site.language == "english" %}
-{% assign homepage_products = "homepage_products" %}
-{% elsif site.language == "german" %}
-{% assign homepage_products = "homepage_products_de" %}
-{% elsif site.language == "japanese" %}
-{% assign homepage_products = "homepage_products_ja" %}
-{% endif %}
-
 {% if site.site_type == "jekyll" %}
 {% for sidebar in site.sidebars %}
 {% for folder in site.data[sidebar].folders %}

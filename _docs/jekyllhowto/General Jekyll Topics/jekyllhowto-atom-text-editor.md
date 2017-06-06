@@ -35,3 +35,5 @@ Turn off auto-complete:
 * **Cmd + Alt + S**: Save all
 
 (For Windows, replace "Cmd" with "Ctrl".)
+
+{% include links.html %}
